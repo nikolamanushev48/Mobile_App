@@ -9,14 +9,6 @@
 
 
     <ImageView
-        android:id="@+id/imageView5"
-        android:layout_width="242dp"
-        android:layout_height="362dp"
-        android:layout_gravity="center"
-        android:padding="15dp"
-        android:src="@drawable/bear" />
-
-    <ImageView
         android:id="@+id/imageView4"
         android:layout_width="352dp"
         android:layout_height="match_parent"
