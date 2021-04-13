@@ -1,19 +1,99 @@
 <?xml version="1.0" encoding="utf-8" ?>
 
-<LinearLayout
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
-    android:background="#80000000">
+    android:background="@color/black">
 
 
     <ImageView
         android:id="@+id/imageView4"
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
         android:layout_gravity="center"
+        android:contentDescription="@null"
         android:padding="15dp"
         android:src="@drawable/board" />
 
-</LinearLayout>
+    <ImageView
+        android:id="@+id/black_pawn_1"
+        android:layout_width="59dp"
+        android:layout_height="65dp"
+        android:layout_gravity="center"
+        android:layout_marginLeft="-145dip"
+        android:layout_marginBottom="-105dip"
+        android:contentDescription="@null"
+        android:padding="15dp"
+        android:src="@drawable/black_pawn_22" />
+    <ImageView
+        android:id="@+id/black_pawn_2"
+        android:layout_width="59dp"
+        android:layout_height="65dp"
+        android:layout_gravity="center"
+        android:layout_marginLeft="-105dip"
+        android:layout_marginBottom="-105dip"
+        android:contentDescription="@null"
+        android:padding="15dp"
+        android:src="@drawable/black_pawn_22" />
+    <ImageView
+        android:id="@+id/black_pawn_3"
+        android:layout_width="59dp"
+        android:layout_height="65dp"
+        android:layout_gravity="center"
+        android:layout_marginLeft="-65dip"
+        android:layout_marginBottom="-105dip"
+        android:contentDescription="@null"
+        android:padding="15dp"
+        android:src="@drawable/black_pawn_22" />
+    <ImageView
+        android:id="@+id/black_pawn_4"
+        android:layout_width="59dp"
+        android:layout_height="65dp"
+        android:layout_gravity="center"
+        android:layout_marginLeft="-25dip"
+        android:layout_marginBottom="-105dip"
+        android:contentDescription="@null"
+        android:padding="15dp"
+        android:src="@drawable/black_pawn_22" />
+    <ImageView
+        android:id="@+id/black_pawn_5"
+        android:layout_width="59dp"
+        android:layout_height="65dp"
+        android:layout_gravity="center"
+        android:layout_marginLeft="25dip"
+        android:layout_marginBottom="-105dip"
+        android:contentDescription="@null"
+        android:padding="15dp"
+        android:src="@drawable/black_pawn_22" />
+    <ImageView
+        android:id="@+id/black_pawn_6"
+        android:layout_width="59dp"
+        android:layout_height="65dp"
+        android:layout_gravity="center"
+        android:layout_marginLeft="65dip"
+        android:layout_marginBottom="-105dip"
+        android:contentDescription="@null"
+        android:padding="15dp"
+        android:src="@drawable/black_pawn_22" />
+    <ImageView
+        android:id="@+id/black_pawn_7"
+        android:layout_width="59dp"
+        android:layout_height="65dp"
+        android:layout_gravity="center"
+        android:layout_marginLeft="105dip"
+        android:layout_marginBottom="-105dip"
+        android:contentDescription="@null"
+        android:padding="15dp"
+        android:src="@drawable/black_pawn_22" />
+    <ImageView
+        android:id="@+id/black_pawn_8"
+        android:layout_width="59dp"
+        android:layout_height="65dp"
+        android:layout_gravity="center"
+        android:layout_marginLeft="145dip"
+        android:layout_marginBottom="-105dip"
+        android:contentDescription="@null"
+        android:padding="15dp"
+        android:src="@drawable/black_pawn_22" />
+
+</FrameLayout>
