@@ -1,99 +1,260 @@
 <?xml version="1.0" encoding="utf-8" ?>
-
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="fill_parent"
-    android:layout_height="fill_parent"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
     android:background="@color/black">
 
+    <ImageView
+        android:id="@+id/board"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:padding="15dp"
+        android:src="@drawable/board"
+        tools:ignore="MissingConstraints" />
 
     <ImageView
-        android:id="@+id/imageView4"
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
+        android:id="@+id/white_pawn_1"
+        android:layout_width="59dp"
+        android:layout_height="65dp"
         android:layout_gravity="center"
         android:contentDescription="@null"
         android:padding="15dp"
-        android:src="@drawable/board" />
+        android:src="@drawable/white_pawn"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/board"
+        app:layout_constraintHorizontal_bias="0.076"
+        app:layout_constraintStart_toStartOf="@+id/board"
+        app:layout_constraintTop_toTopOf="@+id/board"
+        app:layout_constraintVertical_bias="0.677" />
+
+    <ImageView
+        android:id="@+id/white_pawn_2"
+        android:layout_width="59dp"
+        android:layout_height="65dp"
+        android:layout_gravity="center"
+        android:contentDescription="@null"
+        android:padding="15dp"
+        android:src="@drawable/white_pawn"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.19"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.677" />
+
+    <ImageView
+        android:id="@+id/white_pawn_3"
+        android:layout_width="59dp"
+        android:layout_height="65dp"
+        android:layout_gravity="center"
+        android:contentDescription="@null"
+        android:padding="15dp"
+        android:src="@drawable/white_pawn"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.301"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.677" />
+
+    <ImageView
+        android:id="@+id/white_pawn_4"
+        android:layout_width="59dp"
+        android:layout_height="65dp"
+        android:layout_gravity="center"
+        android:contentDescription="@null"
+        android:padding="15dp"
+        android:src="@drawable/white_pawn"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.434"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.677" />
+
+    <ImageView
+        android:id="@+id/white_pawn_5"
+        android:layout_width="59dp"
+        android:layout_height="65dp"
+        android:layout_gravity="center"
+        android:contentDescription="@null"
+        android:padding="15dp"
+        android:src="@drawable/white_pawn"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/board"
+        app:layout_constraintHorizontal_bias="0.559"
+        app:layout_constraintStart_toStartOf="@+id/board"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.677" />
+
+    <ImageView
+        android:id="@+id/white_pawn_6"
+        android:layout_width="59dp"
+        android:layout_height="65dp"
+        android:layout_gravity="center"
+        android:contentDescription="@null"
+        android:padding="15dp"
+        android:src="@drawable/white_pawn"
+        app:layout_constraintBottom_toBottomOf="@+id/board"
+        app:layout_constraintEnd_toEndOf="@+id/board"
+        app:layout_constraintHorizontal_bias="0.684"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/board"
+        app:layout_constraintVertical_bias="0.677" />
+
+    <ImageView
+        android:id="@+id/white_pawn_7"
+        android:layout_width="59dp"
+        android:layout_height="65dp"
+        android:layout_gravity="center"
+        android:contentDescription="@null"
+        android:padding="15dp"
+        android:src="@drawable/white_pawn"
+        app:layout_constraintBottom_toBottomOf="@+id/board"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.803"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/board"
+        app:layout_constraintVertical_bias="0.677" />
+
+    <ImageView
+        android:id="@+id/white_pawn_8"
+        android:layout_width="59dp"
+        android:layout_height="65dp"
+        android:layout_gravity="center"
+        android:contentDescription="@null"
+        android:padding="15dp"
+        android:src="@drawable/white_pawn"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.926"
+        app:layout_constraintStart_toStartOf="@+id/board"
+        app:layout_constraintTop_toTopOf="@+id/board"
+        app:layout_constraintVertical_bias="0.677" />
 
     <ImageView
         android:id="@+id/black_pawn_1"
         android:layout_width="59dp"
         android:layout_height="65dp"
         android:layout_gravity="center"
-        android:layout_marginLeft="-145dip"
-        android:layout_marginBottom="-105dip"
         android:contentDescription="@null"
         android:padding="15dp"
-        android:src="@drawable/black_pawn_22" />
+        android:src="@drawable/black_pawn_22"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.076"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/board"
+        app:layout_constraintVertical_bias="0.307" />
+
     <ImageView
         android:id="@+id/black_pawn_2"
         android:layout_width="59dp"
         android:layout_height="65dp"
         android:layout_gravity="center"
-        android:layout_marginLeft="-105dip"
-        android:layout_marginBottom="-105dip"
         android:contentDescription="@null"
         android:padding="15dp"
-        android:src="@drawable/black_pawn_22" />
+        android:src="@drawable/black_pawn_22"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.19"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.307" />
+
     <ImageView
         android:id="@+id/black_pawn_3"
         android:layout_width="59dp"
         android:layout_height="65dp"
         android:layout_gravity="center"
-        android:layout_marginLeft="-65dip"
-        android:layout_marginBottom="-105dip"
         android:contentDescription="@null"
         android:padding="15dp"
-        android:src="@drawable/black_pawn_22" />
+        android:src="@drawable/black_pawn_22"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/board"
+        app:layout_constraintHorizontal_bias="0.323"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.307" />
+
     <ImageView
         android:id="@+id/black_pawn_4"
         android:layout_width="59dp"
         android:layout_height="65dp"
         android:layout_gravity="center"
-        android:layout_marginLeft="-25dip"
-        android:layout_marginBottom="-105dip"
         android:contentDescription="@null"
         android:padding="15dp"
-        android:src="@drawable/black_pawn_22" />
+        android:src="@drawable/black_pawn_22"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/board"
+        app:layout_constraintHorizontal_bias="0.434"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/board"
+        app:layout_constraintVertical_bias="0.307" />
+
     <ImageView
         android:id="@+id/black_pawn_5"
         android:layout_width="59dp"
         android:layout_height="65dp"
         android:layout_gravity="center"
-        android:layout_marginLeft="25dip"
-        android:layout_marginBottom="-105dip"
         android:contentDescription="@null"
         android:padding="15dp"
-        android:src="@drawable/black_pawn_22" />
+        android:src="@drawable/black_pawn_22"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.559"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/board"
+        app:layout_constraintVertical_bias="0.307" />
+
     <ImageView
         android:id="@+id/black_pawn_6"
         android:layout_width="59dp"
         android:layout_height="65dp"
         android:layout_gravity="center"
-        android:layout_marginLeft="65dip"
-        android:layout_marginBottom="-105dip"
         android:contentDescription="@null"
         android:padding="15dp"
-        android:src="@drawable/black_pawn_22" />
+        android:src="@drawable/black_pawn_22"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.684"
+        app:layout_constraintStart_toStartOf="@+id/board"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.307" />
+
     <ImageView
         android:id="@+id/black_pawn_7"
         android:layout_width="59dp"
         android:layout_height="65dp"
         android:layout_gravity="center"
-        android:layout_marginLeft="105dip"
-        android:layout_marginBottom="-105dip"
         android:contentDescription="@null"
         android:padding="15dp"
-        android:src="@drawable/black_pawn_22" />
+        android:src="@drawable/black_pawn_22"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/board"
+        app:layout_constraintHorizontal_bias="0.803"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.307" />
+
     <ImageView
         android:id="@+id/black_pawn_8"
         android:layout_width="59dp"
         android:layout_height="65dp"
+
         android:layout_gravity="center"
-        android:layout_marginLeft="145dip"
-        android:layout_marginBottom="-105dip"
         android:contentDescription="@null"
         android:padding="15dp"
-        android:src="@drawable/black_pawn_22" />
+        android:src="@drawable/black_pawn_22"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.926"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/board"
+        app:layout_constraintVertical_bias="0.307" />
 
-</FrameLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
