@@ -7,14 +7,14 @@ import com.android.volley.toolbox.StringRequest
 import com.android.volley.toolbox.Volley
 
 class Connect: AppCompatActivity() {
-    private val url = "http://87.243.110.69:8010/api"
+    private val url = //address of server
     private val queue = Volley.newRequestQueue(this)
     private val text = findViewById<TextView>(R.id.text2)
 
     fun request() {
         val stringRequest = StringRequest(
             Request.Method.GET,
-            url,
+            this.url,
             { response ->
                 text.text = response.toString()
             },
