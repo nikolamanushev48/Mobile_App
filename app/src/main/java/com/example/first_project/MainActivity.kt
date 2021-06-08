@@ -14,7 +14,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.button)
         val button: Button = findViewById(R.id.button2)
         button.setOnClickListener(){
-            val url = //adress of server
+            val url = //address of server
             val queue = Volley.newRequestQueue(this)
             val text = findViewById<TextView>(R.id.text2)
 
@@ -22,18 +22,13 @@ class MainActivity : AppCompatActivity() {
                 Request.Method.GET,
                 url,
                 { response ->
-                    /*
                     if(response.toInt() == 1) {
-                        //setContentView(R.layout.activity_main)
-                        text.text = response.toString()
+                        setContentView(R.layout.activity_main)
                     }
 
                     if(response.toInt() == 2) {
-                        //setContentView(R.layout.activity_main2)
-                        text.text = response.toString()
+                        setContentView(R.layout.activity_main2)
                     }
-                    */
-                    text.text = response.toString()
                 },
                 { volleyError ->
                     text.text = volleyError.message
@@ -41,19 +36,6 @@ class MainActivity : AppCompatActivity() {
             )
             queue.add(stringRequest)
         }
-
-        /*
-        var game: Int = 1// player = server.set_game()
-        if(game == 1) {
-            val player1: BlackPawns = BlackPawns(1)
-            player1.move()
-        }
-        if(game == 2) {
-            val player2: BlackPawns = BlackPawns()
-            player2.move()
-        }
-
-         */
     }
 }
 
