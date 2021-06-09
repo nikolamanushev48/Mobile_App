@@ -29,10 +29,13 @@ class MainActivity : AppCompatActivity() {
                 { response ->
                     if(response.toInt() == 1) {
                         setContentView(R.layout.activity_main)
+
+                        //move of whites
                     }
 
                     if(response.toInt() == 2) {
                         setContentView(R.layout.activity_main2)
+                        //move of blacks
                     }
                 },
                 { volleyError ->
@@ -45,7 +48,7 @@ class MainActivity : AppCompatActivity() {
 
         val buttonSend: Button = findViewById(R.id.button)
         buttonSend.setOnClickListener() {
-            val url = //address of server
+            val url = "http://87.243.110.69:8010/api2/"
             val stringRequest = StringRequest(
                 Request.Method.POST,
                 url,
