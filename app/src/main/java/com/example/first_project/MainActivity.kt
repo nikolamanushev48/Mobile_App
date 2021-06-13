@@ -8,23 +8,27 @@ import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.android.volley.AuthFailureError
 import com.android.volley.Request
+import com.android.volley.toolbox.JsonObjectRequest
 import com.android.volley.toolbox.StringRequest
 import com.android.volley.toolbox.Volley
 import kotlinx.android.synthetic.main.activity_main.*
+import org.json.JSONObject
 import java.util.*
-import kotlin.concurrent.timerTask
 
 class MainActivity : AppCompatActivity() {
     var x_Down:Float = 0.0F
     var y_Down:Float = 0.0F
     @SuppressLint("SetTextI18n","ShowToast", "ClickableViewAccessibility")
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.button)
         val queue = Volley.newRequestQueue(this)
         val text = findViewById<TextView>(R.id.text2)
         val actionBar = supportActionBar
+
         actionBar!!.hide()
         var listener = View.OnTouchListener(function = { view, motionEvent ->
 
@@ -36,9 +40,10 @@ class MainActivity : AppCompatActivity() {
 
             true
         })
+
         val button: Button = findViewById(R.id.button2)
         button.setOnClickListener(){
-            val url = //address of server
+            val url = "http://192.168.10.107:8010/api/"
             val stringRequest = StringRequest(
                 Request.Method.GET,
                 url,
@@ -58,6 +63,7 @@ class MainActivity : AppCompatActivity() {
 
                     if(response.toInt() == 2) {
                         setContentView(R.layout.activity_main2)
+
                         black_pawn_1.setOnTouchListener(listener)
                         black_pawn_2.setOnTouchListener(listener)
                         black_pawn_3.setOnTouchListener(listener)
@@ -78,20 +84,31 @@ class MainActivity : AppCompatActivity() {
 
         val buttonSend: Button = findViewById(R.id.button)
         buttonSend.setOnClickListener() {
-            val url = "http://87.243.110.69:8010/api2/"
-            val stringRequest = StringRequest(
+            val url = "http://192.168.10.107:8010/api2/"
+
+            val info = JSONObject()
+            info.put("id", "1476")
+            info.put("msg", "Samo Levski")
+
+            val send = object : JsonObjectRequest(
                 Request.Method.POST,
                 url,
+                info,
                 { response ->
-                    Toast.makeText(this, response, Toast.LENGTH_LONG).show()
+                    Toast.makeText(this, response.toString(), Toast.LENGTH_SHORT).show()
                 },
-                { volleyError ->
-                    val error: String = "ERROR: Connection or sent information failed!"
-                    Toast.makeText(this, error, Toast.LENGTH_LONG).show()
+                { volleyError->
+                    Toast.makeText(this, "ERROR: Connection or sending information failed!", Toast.LENGTH_SHORT).show()
                 }
-            )
-            queue.add(stringRequest)
+            ) {
+                @Throws(AuthFailureError::class)
+                override fun getHeaders(): Map<String, String> {
+                    val headers = HashMap<String, String>()
+                    headers.put("Content-Type", "application/json")
+                    return headers
+                }
+            }
+            queue.add(send)
         }
     }
 }
-
