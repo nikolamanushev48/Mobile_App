@@ -10,9 +10,7 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.android.volley.AuthFailureError
 import com.android.volley.Request
-import com.android.volley.toolbox.JsonObjectRequest
-import com.android.volley.toolbox.StringRequest
-import com.android.volley.toolbox.Volley
+import com.android.volley.toolbox.*
 import kotlinx.android.synthetic.main.activity_main.*
 import org.json.JSONObject
 import java.util.*
@@ -43,7 +41,7 @@ class MainActivity : AppCompatActivity() {
 
         val button: Button = findViewById(R.id.button2)
         button.setOnClickListener(){
-            val url = "http://192.168.10.107:8010/api/"
+            val url = "http://192.168.10.107:8010/set_game/"
             val stringRequest = StringRequest(
                 Request.Method.GET,
                 url,
@@ -84,21 +82,21 @@ class MainActivity : AppCompatActivity() {
 
         val buttonSend: Button = findViewById(R.id.button)
         buttonSend.setOnClickListener() {
-            val url = "http://192.168.10.107:8010/api2/"
+            val url = "http://192.168.10.107:8010/players/"
 
             val info = JSONObject()
             info.put("id", "1476")
             info.put("msg", "Samo Levski")
 
             val send = object : JsonObjectRequest(
-                Request.Method.POST,
+                Method.POST,
                 url,
                 info,
                 { response ->
                     Toast.makeText(this, response.toString(), Toast.LENGTH_SHORT).show()
                 },
                 { volleyError->
-                    Toast.makeText(this, "ERROR: Connection or sending information failed!", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this, volleyError.message, Toast.LENGTH_SHORT).show()
                 }
             ) {
                 @Throws(AuthFailureError::class)
