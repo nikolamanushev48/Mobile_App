@@ -5,9 +5,11 @@ import android.os.Bundle
 import android.view.MotionEvent
 import android.view.View
 import android.widget.Button
+import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.widget.addTextChangedListener
 import com.android.volley.AuthFailureError
 import com.android.volley.Request
 import com.android.volley.toolbox.*
@@ -80,23 +82,26 @@ class MainActivity : AppCompatActivity() {
             queue.add(stringRequest)
         }
 
+        val insert = findViewById<EditText>(R.id.textName)
         val buttonSend: Button = findViewById(R.id.button)
         buttonSend.setOnClickListener() {
             val url = "http://192.168.10.107:8010/players/"
 
             val info = JSONObject()
             info.put("id", "1476")
-            info.put("msg", "Samo Levski")
+            info.put("msg", insert.text)
 
             val send = object : JsonObjectRequest(
                 Method.POST,
                 url,
                 info,
                 { response ->
-                    Toast.makeText(this, response.toString(), Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this, insert.text, Toast.LENGTH_SHORT).show()
                 },
                 { volleyError->
-                    Toast.makeText(this, volleyError.message, Toast.LENGTH_SHORT).show()
+                    if(volleyError.message?.get(0) != 'o'){
+                        Toast.makeText(this, volleyError.message, Toast.LENGTH_SHORT).show()
+                    }
                 }
             ) {
                 @Throws(AuthFailureError::class)
