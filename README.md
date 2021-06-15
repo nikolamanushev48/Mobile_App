@@ -1,12 +1,12 @@
 # Chess game
 
-Реализираме игра на шах за Android.
-Разработваме мобилното приложение на Koltin, докато сървърната част е на Flask+Python.
+We are implementing a chess game for Android.
+Developing mobile application on Kotlin and server on Flask+Python
 
 # Mobile app
 
-За мобилното приложение е нужно инсталирането на Android Studio и клонирането на това репо. Важна част е също и активирането на developer options на телефона, както и отстраняването на грешки чрез USB (всеки телефон е различен).
+For mobile application you have to install Android Studio and set your smartphone to developer options.
 
 # Server
 
-За сървъра ще качим повече подробности, както и requirements файл...
+About server you can see everything on https://github.com/lucho03/Flask-Server
