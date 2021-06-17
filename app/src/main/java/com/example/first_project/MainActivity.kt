@@ -82,21 +82,25 @@ class MainActivity : AppCompatActivity() {
             queue.add(stringRequest)
         }
 
-        val insert = findViewById<EditText>(R.id.textName)
+        val insertName = findViewById<EditText>(R.id.textName)
+        val insertEnemy = findViewById<EditText>(R.id.textEnemy)
         val buttonSend: Button = findViewById(R.id.button)
         buttonSend.setOnClickListener() {
             val url = "http://192.168.10.107:8010/players/"
-
             val info = JSONObject()
             info.put("id", "1476")
-            info.put("msg", insert.text)
+            info.put("playerName", insertName.text)
+            info.put("enemyName", insertEnemy.text)
+
+            insertName.text = null
+            insertEnemy.text = null
 
             val send = object : JsonObjectRequest(
                 Method.POST,
                 url,
                 info,
                 { response ->
-                    Toast.makeText(this, insert.text, Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this, insertName.text, Toast.LENGTH_SHORT).show()
                 },
                 { volleyError->
                     if(volleyError.message?.get(0) != 'o'){
