@@ -9,7 +9,6 @@ import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.widget.addTextChangedListener
 import com.android.volley.AuthFailureError
 import com.android.volley.Request
 import com.android.volley.toolbox.*
@@ -30,7 +29,7 @@ class MainActivity : AppCompatActivity() {
         val actionBar = supportActionBar
 
         actionBar!!.hide()
-        var listener = View.OnTouchListener(function = { view, motionEvent ->
+        val listener = View.OnTouchListener(function = { view, motionEvent ->
 
             if (motionEvent.action == MotionEvent.ACTION_MOVE) {
 
@@ -44,7 +43,7 @@ class MainActivity : AppCompatActivity() {
         val button: Button = findViewById(R.id.button2)
         button.setOnClickListener(){
             val url = "http://192.168.10.107:8010/set_game/"
-            val stringRequest = StringRequest(
+            val setGame = StringRequest(
                 Request.Method.GET,
                 url,
                 { response ->
@@ -79,7 +78,7 @@ class MainActivity : AppCompatActivity() {
                     Toast.makeText(this, error, Toast.LENGTH_LONG).show()
                 }
             )
-            queue.add(stringRequest)
+            queue.add(setGame)
         }
 
         val insertName = findViewById<EditText>(R.id.textName)
@@ -87,6 +86,7 @@ class MainActivity : AppCompatActivity() {
         val buttonSend: Button = findViewById(R.id.button)
         buttonSend.setOnClickListener() {
             val url = "http://192.168.10.107:8010/players/"
+            val url2 = "http://192.168.10.107:8010/check_enemy/"
             val info = JSONObject()
             info.put("id", "1476")
             info.put("playerName", insertName.text)
@@ -100,22 +100,34 @@ class MainActivity : AppCompatActivity() {
                 url,
                 info,
                 { response ->
-                    Toast.makeText(this, insertName.text, Toast.LENGTH_SHORT).show()
+
                 },
                 { volleyError->
-                    if(volleyError.message?.get(0) != 'o'){
+                    if(volleyError.message?.get(0) != 'o') {
                         Toast.makeText(this, volleyError.message, Toast.LENGTH_SHORT).show()
                     }
                 }
             ) {
                 @Throws(AuthFailureError::class)
-                override fun getHeaders(): Map<String, String> {
+                override fun getHeaders(): MutableMap<String, String>? {
                     val headers = HashMap<String, String>()
                     headers.put("Content-Type", "application/json")
                     return headers
                 }
             }
             queue.add(send)
+
+            val checkEnemy = StringRequest(
+                Request.Method.GET,
+                url2,
+                {response ->
+                    Toast.makeText(this, response, Toast.LENGTH_SHORT).show()
+                },
+                { _ ->
+                    Toast.makeText(this, "Connection with server failed!", Toast.LENGTH_SHORT).show()
+                }
+            )
+            queue.add(checkEnemy)
         }
     }
 }
