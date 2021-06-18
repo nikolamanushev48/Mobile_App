@@ -19,8 +19,8 @@ import java.util.*
 class MainActivity : AppCompatActivity() {
     var x_Down:Float = 0.0F
     var y_Down:Float = 0.0F
-    @SuppressLint("SetTextI18n","ShowToast", "ClickableViewAccessibility")
 
+    @SuppressLint("SetTextI18n","ShowToast", "ClickableViewAccessibility")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.button)
