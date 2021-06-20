@@ -29,16 +29,6 @@ class MainActivity : AppCompatActivity() {
         val actionBar = supportActionBar
 
         actionBar!!.hide()
-        val listener = View.OnTouchListener(function = { view, motionEvent ->
-
-            if (motionEvent.action == MotionEvent.ACTION_MOVE) {
-
-                view.y = motionEvent.rawY - view.height/2
-                view.x = motionEvent.rawX - view.width/2
-            }
-
-            true
-        })
 
         val button: Button = findViewById(R.id.button2)
         button.setOnClickListener(){
@@ -48,29 +38,11 @@ class MainActivity : AppCompatActivity() {
                 url,
                 { response ->
                     if(response.toInt() == 1) {
-                        setContentView(R.layout.activity_main)
-
-                        white_pawn_1.setOnTouchListener(listener)
-                        white_pawn_2.setOnTouchListener(listener)
-                        white_pawn_3.setOnTouchListener(listener)
-                        white_pawn_4.setOnTouchListener(listener)
-                        white_pawn_5.setOnTouchListener(listener)
-                        white_pawn_6.setOnTouchListener(listener)
-                        white_pawn_7.setOnTouchListener(listener)
-                        white_pawn_8.setOnTouchListener(listener)
+                        moveWhites()
                     }
 
                     if(response.toInt() == 2) {
-                        setContentView(R.layout.activity_main2)
-
-                        black_pawn_1.setOnTouchListener(listener)
-                        black_pawn_2.setOnTouchListener(listener)
-                        black_pawn_3.setOnTouchListener(listener)
-                        black_pawn_4.setOnTouchListener(listener)
-                        black_pawn_5.setOnTouchListener(listener)
-                        black_pawn_6.setOnTouchListener(listener)
-                        black_pawn_7.setOnTouchListener(listener)
-                        black_pawn_8.setOnTouchListener(listener)
+                        moveBlacks()
                     }
                 },
                 { volleyError ->
@@ -123,11 +95,49 @@ class MainActivity : AppCompatActivity() {
                 {response ->
                     Toast.makeText(this, response, Toast.LENGTH_SHORT).show()
                 },
-                { _ ->
-                    Toast.makeText(this, "Connection with server failed!", Toast.LENGTH_SHORT).show()
+                {volleyError ->
+                    Toast.makeText(this, volleyError.message, Toast.LENGTH_SHORT).show()
+                    //Toast.makeText(this, "Connection with server failed!", Toast.LENGTH_SHORT).show()
                 }
             )
             queue.add(checkEnemy)
         }
+    }
+
+    val listener = View.OnTouchListener(function = { view, motionEvent ->
+
+        if (motionEvent.action == MotionEvent.ACTION_MOVE) {
+
+            view.y = motionEvent.rawY - view.height/2
+            view.x = motionEvent.rawX - view.width/2
+        }
+
+        true
+    })
+
+    fun moveWhites() {
+        setContentView(R.layout.activity_main)
+
+        white_pawn_1.setOnTouchListener(listener)
+        white_pawn_2.setOnTouchListener(listener)
+        white_pawn_3.setOnTouchListener(listener)
+        white_pawn_4.setOnTouchListener(listener)
+        white_pawn_5.setOnTouchListener(listener)
+        white_pawn_6.setOnTouchListener(listener)
+        white_pawn_7.setOnTouchListener(listener)
+        white_pawn_8.setOnTouchListener(listener)
+    }
+
+    fun moveBlacks() {
+        setContentView(R.layout.activity_main2)
+
+        black_pawn_1.setOnTouchListener(listener)
+        black_pawn_2.setOnTouchListener(listener)
+        black_pawn_3.setOnTouchListener(listener)
+        black_pawn_4.setOnTouchListener(listener)
+        black_pawn_5.setOnTouchListener(listener)
+        black_pawn_6.setOnTouchListener(listener)
+        black_pawn_7.setOnTouchListener(listener)
+        black_pawn_8.setOnTouchListener(listener)
     }
 }
