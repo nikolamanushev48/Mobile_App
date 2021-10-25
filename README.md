@@ -10,3 +10,5 @@ For mobile application you have to install Android Studio and set your smartphon
 # Server
 
 About server you can see everything on https://github.com/lucho03/Flask-Server
+
+THIS PROJECT IS FROZEN!
